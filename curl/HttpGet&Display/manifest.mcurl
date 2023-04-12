@@ -1,0 +1,11 @@
+{curl 8.0 manifest}
+{curl-file-attributes character-encoding = "utf8"}
+{manifest GetToJsonView}
+
+{component file start.curl,
+    location = "start.dcurl"
+}
+
+{component package COM.CURL.LAYOUT-EDITOR.RUNTIME-SUPPORT,
+    location = "COM.CURL.LAYOUT-EDITOR.RUNTIME-SUPPORT/runtime-support.scurl"
+}

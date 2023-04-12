@@ -1,0 +1,102 @@
+{import * from COM.CURL.LAYOUT-EDITOR.RUNTIME-SUPPORT, 
+    version = "3.0",
+    location = "COM.CURL.LAYOUT-EDITOR.RUNTIME-SUPPORT/runtime-support.scurl"
+}
+{define-layout-class public MyContainer
+    || Begin meta-data DO NOT EDIT
+    format-version = 2,
+    design-time-class = "Canvas",
+    run-time-class = "Canvas",
+    || End meta-data
+    width = 413.28pt,
+    height = 158.53pt,
+    background = "#D4D0C8",
+    border-width = 1.5pt,
+    border-color = "#D4D0C8",
+    border-style = "raised",
+    font-size = 11pt,
+    control-appearance-changeable? = true,
+    
+    field public-set public-get get-tags:JsonValue
+    
+    {layout-container void:CommandButton
+        || Begin meta-data DO NOT EDIT
+        anchor = "top-left",
+        x = 108pt,
+        y = 108pt,
+        || End meta-data
+        {CommandButton
+            label = "Show details",
+            width = 186pt,
+            height = 30pt,
+            {on Action do
+                {try ||GET DATA
+                    {set self.get-tags = {JsonValue-parse {url "http://localhost:8080/company-details"}}}
+                 catch e:Exception do
+                    {output e}
+                }
+                {set self.companyName.value = self.get-tags[0]["name"]}
+                {set self.details.value = self.get-tags[0]["description"]}
+            }
+        }
+    }
+    
+    {layout-container void:VleImageShape
+        {VleImageShape
+            translation = {Distance2d 204pt, 30pt},
+            url = {url "img/logo.png"},
+            name = "logo"
+        }
+    }
+    
+    {layout-element details:TextDisplay
+        || Begin meta-data DO NOT EDIT
+        anchor = "top-left",
+        x = 174pt,
+        y = 84pt,
+        || End meta-data
+        {TextDisplay
+            name = "details"
+        }
+    }
+    
+    {layout-element companyName:TextDisplay
+        || Begin meta-data DO NOT EDIT
+        anchor = "top-left",
+        x = 174pt,
+        y = 60pt,
+        || End meta-data
+        {TextDisplay
+            name = "companyName"
+        }
+    }
+    
+    {layout-element void:TextDisplay
+        || Begin meta-data DO NOT EDIT
+        anchor = "top-left",
+        x = 120pt,
+        y = 60pt,
+        || End meta-data
+        {TextDisplay
+            name = "companyName",
+            value = "会社名",
+            width = 42pt
+        }
+    }
+    
+    {layout-element void:TextDisplay
+        || Begin meta-data DO NOT EDIT
+        anchor = "top-left",
+        x = 120pt,
+        y = 84pt,
+        || End meta-data
+        {TextDisplay
+            width = 42pt,
+            value = "詳細",
+            name = "details"
+        }
+    }   
+    {constructor public {default}
+        {self.initialize-components}
+    }
+}

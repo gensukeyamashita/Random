@@ -1,0 +1,19 @@
+{curl 8.0 applet}
+{curl-file-attributes character-encoding = "utf8"}
+
+{import * from COM.CURL.LAYOUT-EDITOR.RUNTIME-SUPPORT, 
+    version = "3.0",
+    location = "COM.CURL.LAYOUT-EDITOR.RUNTIME-SUPPORT/runtime-support.scurl"
+}
+{import * from CURL.IO.JSON}
+{include "index.scurl"}
+
+{View
+    {Dialog 
+        {new MyContainer}.container
+    },
+    visibility = "normal",
+    {on WindowClose do
+        {exit}
+    }
+}
