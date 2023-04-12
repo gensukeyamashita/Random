@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/resources/csv/in/KEN_JOINED.csv" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/resources/csv/in/ngramIndex.csv" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/resources/csv/in/test.csv" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/resources/csv/out/AA20221123193038.csv" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/resources/csv/out/AA20221123193159.csv" charset="Shift_JIS" />
+    <file url="PROJECT" charset="Shift_JIS" />
+  </component>
+</project>
